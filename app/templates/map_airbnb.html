@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+   <link rel="stylesheet" href="https://rawgit.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
+   <script src="https://rawgithub.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+
+   <link rel="stylesheet" href="https://birdage.github.io/Leaflet.awesome-markers/dist/leaflet.awesome.rotate.css">
+
+   
+   
+   
+   
+
+   <style>
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+      }
+
+   </style>
+</head>
+
+<body>
+
+   <div class="folium-map" id="folium_ef4b1ebfa4dd480cbee72966bd596d69" style="width: 100%; height: 100%"></div>
+
+   <script>
+
+      
+
+      var base_tile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          minZoom: 1,
+          attribution: 'Map data (c) <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+      });
+
+      var baseLayer = {
+        "Base Layer": base_tile
+      };
+
+      /*
+      addition of the wms layers
+      */
+
+      
+
+      /*
+      addition of the tile layers
+      */
+      
+
+      /*
+      list of layers to be added
+      */
+      var layer_list = {
+      
+      };
+
+      /*
+      Bounding box.
+      */
+      var southWest = L.latLng(-90, -180),
+          northEast = L.latLng(90, 180),
+          bounds = L.latLngBounds(southWest, northEast);
+
+      /*
+      Creates the map and adds the selected layers
+      */
+      var map = L.map('folium_ef4b1ebfa4dd480cbee72966bd596d69', {
+                                       center:[48.8583701, 2.2944813],
+                                       zoom: 14,
+                                       maxBounds: bounds,
+                                       layers: [base_tile]
+                                     });
+
+      L.control.layers(baseLayer, layer_list).addTo(map);
+
+      //cluster group
+      var clusteredmarkers = L.markerClusterGroup();
+      //section for adding clustered markers
+      
+      //add the clustered markers to the group anyway
+      map.addLayer(clusteredmarkers);
+
+      
+
+      
+      var circle_1 = L.circle([48.84663102, 2.340786169], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_1.bindPopup("<img src=https://a1.muscache.com/im/pictures/104971692/7aed2761_original.jpg width=300 height=300 <br> 174$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/8162964.0>Go to airbnb</a>");
+      circle_1._popup.options.maxWidth = 300;
+      map.addLayer(circle_1)
+      
+      var circle_2 = L.circle([48.86892735, 2.344214147], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_2.bindPopup("<img src=https://a1.muscache.com/im/pictures/100127092/0817fc05_original.jpg width=300 height=300 <br> 255$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/7862036.0>Go to airbnb</a>");
+      circle_2._popup.options.maxWidth = 300;
+      map.addLayer(circle_2)
+      
+      var circle_3 = L.circle([48.85396308, 2.285294514], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_3.bindPopup("<img src=https://a1.muscache.com/im/pictures/32127804/d4131b52_original.jpg width=300 height=300 <br> 93$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/972322.0>Go to airbnb</a>");
+      circle_3._popup.options.maxWidth = 300;
+      map.addLayer(circle_3)
+      
+      var circle_4 = L.circle([48.84600892, 2.288801082], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_4.bindPopup("<img src=https://a2.muscache.com/im/pictures/100220932/27965e56_original.jpg width=300 height=300 <br> 107$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/2638486.0>Go to airbnb</a>");
+      circle_4._popup.options.maxWidth = 300;
+      map.addLayer(circle_4)
+      
+      var circle_5 = L.circle([48.88162585, 2.331880635], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_5.bindPopup("<img src=https://a1.muscache.com/im/pictures/100723177/5db13ff5_original.jpg width=300 height=300 <br> 92$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/7898180.0>Go to airbnb</a>");
+      circle_5._popup.options.maxWidth = 300;
+      map.addLayer(circle_5)
+      
+      var circle_6 = L.circle([48.88162585, 2.331880635], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_6.bindPopup("<img src=https://a1.muscache.com/im/pictures/100723177/5db13ff5_original.jpg width=300 height=300 <br> 92$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/7898180.0>Go to airbnb</a>");
+      circle_6._popup.options.maxWidth = 300;
+      map.addLayer(circle_6)
+      
+      var circle_7 = L.circle([48.85985534, 2.296473808], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_7.bindPopup("<img src=https://a1.muscache.com/im/pictures/71239439/bce57c55_original.jpg width=300 height=300 <br> 91$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/5724631.0>Go to airbnb</a>");
+      circle_7._popup.options.maxWidth = 300;
+      map.addLayer(circle_7)
+      
+      var circle_8 = L.circle([48.86056046, 2.301856114], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_8.bindPopup("<img src=https://a1.muscache.com/im/pictures/72113208/41912e18_original.jpg width=300 height=300 <br> 167$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/5792158.0>Go to airbnb</a>");
+      circle_8._popup.options.maxWidth = 300;
+      map.addLayer(circle_8)
+      
+      var circle_9 = L.circle([48.85537791, 2.292296392], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_9.bindPopup("<img src=https://a1.muscache.com/im/pictures/46561590/d32f13d5_original.jpg width=300 height=300 <br> 162$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/3086967.0>Go to airbnb</a>");
+      circle_9._popup.options.maxWidth = 300;
+      map.addLayer(circle_9)
+      
+      var circle_10 = L.circle([48.85857037, 2.290734549], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_10.bindPopup("<img src=https://a2.muscache.com/im/pictures/47447415/3aac9b18_original.jpg width=300 height=300 <br> 450$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/3537668.0>Go to airbnb</a>");
+      circle_10._popup.options.maxWidth = 300;
+      map.addLayer(circle_10)
+      
+      var circle_11 = L.circle([48.85536768, 2.300964128], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_11.bindPopup("<img src=https://a0.muscache.com/im/pictures/44248101/956afff7_original.jpg width=300 height=300 <br> 576$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/3305499.0>Go to airbnb</a>");
+      circle_11._popup.options.maxWidth = 300;
+      map.addLayer(circle_11)
+      
+      var circle_12 = L.circle([48.85717543, 2.298840628], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_12.bindPopup("<img src=https://a0.muscache.com/im/pictures/52147579/a43c907d_original.jpg width=300 height=300 <br> 229$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/1061255.0>Go to airbnb</a>");
+      circle_12._popup.options.maxWidth = 300;
+      map.addLayer(circle_12)
+      
+      var circle_13 = L.circle([48.88751521, 2.335762004], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_13.bindPopup("<img src=https://a2.muscache.com/im/pictures/85818976/04729b01_original.jpg width=300 height=300 <br> 185$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/4603069.0>Go to airbnb</a>");
+      circle_13._popup.options.maxWidth = 300;
+      map.addLayer(circle_13)
+      
+      var circle_14 = L.circle([48.88631475, 2.236608486], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_14.bindPopup("<img src=https://a0.muscache.com/im/pictures/92486887/055c8894_original.jpg width=300 height=300 <br> 87$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/7162148.0>Go to airbnb</a>");
+      circle_14._popup.options.maxWidth = 300;
+      map.addLayer(circle_14)
+      
+      var circle_15 = L.circle([48.85382079, 2.292836608], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_15.bindPopup("<img src=https://a2.muscache.com/im/pictures/107674356/8fdfb31a_original.jpg width=300 height=300 <br> 87$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/8467512.0>Go to airbnb</a>");
+      circle_15._popup.options.maxWidth = 300;
+      map.addLayer(circle_15)
+      
+      var circle_16 = L.circle([48.85180054, 2.275587261], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_16.bindPopup("<img src=https://a1.muscache.com/im/pictures/103377752/b83c84da_original.jpg width=300 height=300 <br> 104$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/5794055.0>Go to airbnb</a>");
+      circle_16._popup.options.maxWidth = 300;
+      map.addLayer(circle_16)
+      
+      var circle_17 = L.circle([48.86376917, 2.371669681], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_17.bindPopup("<img src=https://a2.muscache.com/im/pictures/36194073/28a2cc41_original.jpg width=300 height=300 <br> 174$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/1234567.0>Go to airbnb</a>");
+      circle_17._popup.options.maxWidth = 300;
+      map.addLayer(circle_17)
+      
+      var circle_18 = L.circle([48.85626338, 2.289414171], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_18.bindPopup("<img src=https://a0.muscache.com/im/pictures/54669054/2c0500c8_original.jpg width=300 height=300 <br> 112$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/2765864.0>Go to airbnb</a>");
+      circle_18._popup.options.maxWidth = 300;
+      map.addLayer(circle_18)
+      
+      var circle_19 = L.circle([48.85572402, 2.2900245], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_19.bindPopup("<img src=https://a2.muscache.com/im/pictures/2395752/ee0bd1e0_original.jpg width=300 height=300 <br> 138$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/237428.0>Go to airbnb</a>");
+      circle_19._popup.options.maxWidth = 300;
+      map.addLayer(circle_19)
+      
+      var circle_20 = L.circle([48.86616992, 2.290455184], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_20.bindPopup("<img src=https://a0.muscache.com/im/pictures/59434423/f47feb0a_original.jpg width=300 height=300 <br> 149$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/2961404.0>Go to airbnb</a>");
+      circle_20._popup.options.maxWidth = 300;
+      map.addLayer(circle_20)
+      
+      var circle_21 = L.circle([48.85933369, 2.297122084], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_21.bindPopup("<img src=https://a2.muscache.com/im/pictures/64904937/0c551894_original.jpg width=300 height=300 <br> 202$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/5191204.0>Go to airbnb</a>");
+      circle_21._popup.options.maxWidth = 300;
+      map.addLayer(circle_21)
+      
+      var circle_22 = L.circle([48.86039702, 2.30062601], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_22.bindPopup("<img src=https://a1.muscache.com/im/pictures/86774823/50260814_original.jpg width=300 height=300 <br> 75$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/6858461.0>Go to airbnb</a>");
+      circle_22._popup.options.maxWidth = 300;
+      map.addLayer(circle_22)
+      
+      var circle_23 = L.circle([48.85507608, 2.288864952], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_23.bindPopup("<img src=https://a0.muscache.com/im/pictures/6514372/3575a152_original.jpg width=300 height=300 <br> 92$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/537443.0>Go to airbnb</a>");
+      circle_23._popup.options.maxWidth = 300;
+      map.addLayer(circle_23)
+      
+      var circle_24 = L.circle([48.8526933, 2.295560074], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_24.bindPopup("<img src=https://a2.muscache.com/im/pictures/70938264/da60a509_original.jpg width=300 height=300 <br> 485$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/5700591.0>Go to airbnb</a>");
+      circle_24._popup.options.maxWidth = 300;
+      map.addLayer(circle_24)
+      
+      var circle_25 = L.circle([48.84996429, 2.297718483], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_25.bindPopup("<img src=https://a2.muscache.com/im/pictures/61480938/7d391dea_original.jpg width=300 height=300 <br> 335$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/3602245.0>Go to airbnb</a>");
+      circle_25._popup.options.maxWidth = 300;
+      map.addLayer(circle_25)
+      
+      var circle_26 = L.circle([48.85946842, 2.296271627], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_26.bindPopup("<img src=https://a2.muscache.com/im/pictures/13457144/9faf68f1_original.jpg width=300 height=300 <br> 138$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/862407.0>Go to airbnb</a>");
+      circle_26._popup.options.maxWidth = 300;
+      map.addLayer(circle_26)
+      
+      var circle_27 = L.circle([48.85272159, 2.291540395], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_27.bindPopup("<img src=https://a0.muscache.com/im/pictures/26300400/d4d4e92d_original.jpg width=300 height=300 <br> 134$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/1890074.0>Go to airbnb</a>");
+      circle_27._popup.options.maxWidth = 300;
+      map.addLayer(circle_27)
+      
+      var circle_28 = L.circle([48.83512856, 2.308079763], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_28.bindPopup("<img src=https://a0.muscache.com/im/pictures/78597426/bdc7e0b0_original.jpg width=300 height=300 <br> 635$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/6294223.0>Go to airbnb</a>");
+      circle_28._popup.options.maxWidth = 300;
+      map.addLayer(circle_28)
+      
+      var circle_29 = L.circle([48.8593198, 2.288147852], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_29.bindPopup("<img src=https://a1.muscache.com/im/pictures/75552185/be3c9a46_original.jpg width=300 height=300 <br> 345$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/6029930.0>Go to airbnb</a>");
+      circle_29._popup.options.maxWidth = 300;
+      map.addLayer(circle_29)
+      
+      var circle_30 = L.circle([48.85576349, 2.295670797], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_30.bindPopup("<img src=https://a0.muscache.com/im/pictures/69715202/a445c4ec_original.jpg width=300 height=300 <br> 577$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/5600640.0>Go to airbnb</a>");
+      circle_30._popup.options.maxWidth = 300;
+      map.addLayer(circle_30)
+      
+      var circle_31 = L.circle([48.85952272, 2.30110535], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_31.bindPopup("<img src=https://a2.muscache.com/im/pictures/105263311/ddf63316_original.jpg width=300 height=300 <br> 681$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/8272127.0>Go to airbnb</a>");
+      circle_31._popup.options.maxWidth = 300;
+      map.addLayer(circle_31)
+      
+      var circle_32 = L.circle([48.85199706, 2.29795167], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_32.bindPopup("<img src=https://a0.muscache.com/im/pictures/4755467/4336ab70_original.jpg width=300 height=300 <br> 866$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/412485.0>Go to airbnb</a>");
+      circle_32._popup.options.maxWidth = 300;
+      map.addLayer(circle_32)
+      
+      var circle_33 = L.circle([48.85649671, 2.29310381], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_33.bindPopup("<img src=https://a0.muscache.com/im/pictures/31354619/c26b6023_original.jpg width=300 height=300 <br> 404$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/1224915.0>Go to airbnb</a>");
+      circle_33._popup.options.maxWidth = 300;
+      map.addLayer(circle_33)
+      
+      var circle_34 = L.circle([48.88489325, 2.33418448], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_34.bindPopup("<img src=https://a0.muscache.com/im/pictures/20563489/ac344a30_original.jpg width=300 height=300 <br> 230$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/538222.0>Go to airbnb</a>");
+      circle_34._popup.options.maxWidth = 300;
+      map.addLayer(circle_34)
+      
+      var circle_35 = L.circle([48.86580959, 2.286888202], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_35.bindPopup("<img src=https://a0.muscache.com/im/pictures/19576853/d3912aff_original.jpg width=300 height=300 <br> 53$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/1298392.0>Go to airbnb</a>");
+      circle_35._popup.options.maxWidth = 300;
+      map.addLayer(circle_35)
+      
+      var circle_36 = L.circle([48.85036097, 2.267223512], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_36.bindPopup("<img src=https://a0.muscache.com/im/pictures/57308422/010da3fa_original.jpg width=300 height=300 <br> 49$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/4258454.0>Go to airbnb</a>");
+      circle_36._popup.options.maxWidth = 300;
+      map.addLayer(circle_36)
+      
+      var circle_37 = L.circle([48.84831689, 2.292402554], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_37.bindPopup("<img src=https://a0.muscache.com/im/pictures/60006763/e3ae0a83_original.jpg width=300 height=300 <br> 104$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/3992235.0>Go to airbnb</a>");
+      circle_37._popup.options.maxWidth = 300;
+      map.addLayer(circle_37)
+      
+      var circle_38 = L.circle([48.85677681, 2.293516491], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_38.bindPopup("<img src=https://a1.muscache.com/im/pictures/12015149/9c1f905d_original.jpg width=300 height=300 <br> 383$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/827062.0>Go to airbnb</a>");
+      circle_38._popup.options.maxWidth = 300;
+      map.addLayer(circle_38)
+      
+      var circle_39 = L.circle([48.85572402, 2.2900245], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_39.bindPopup("<img src=https://a2.muscache.com/im/pictures/2395752/ee0bd1e0_original.jpg width=300 height=300 <br> 139$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/237428.0>Go to airbnb</a>");
+      circle_39._popup.options.maxWidth = 300;
+      map.addLayer(circle_39)
+      
+      var circle_40 = L.circle([48.85999311, 2.306961038], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_40.bindPopup("<img src=https://a2.muscache.com/im/pictures/55258205/55c71c21_original.jpg width=300 height=300 <br> 150$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/680662.0>Go to airbnb</a>");
+      circle_40._popup.options.maxWidth = 300;
+      map.addLayer(circle_40)
+      
+      var circle_41 = L.circle([48.8594434, 2.290966715], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_41.bindPopup("<img src=https://a2.muscache.com/im/pictures/60673822/f04a8f33_original.jpg width=300 height=300 <br> 460$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/4773013.0>Go to airbnb</a>");
+      circle_41._popup.options.maxWidth = 300;
+      map.addLayer(circle_41)
+      
+      var circle_42 = L.circle([48.8564918, 2.287275428], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_42.bindPopup("<img src=https://a0.muscache.com/im/pictures/3064396/5bd2de9c_original.jpg width=300 height=300 <br> 231$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/278815.0>Go to airbnb</a>");
+      circle_42._popup.options.maxWidth = 300;
+      map.addLayer(circle_42)
+      
+      var circle_43 = L.circle([48.85943464, 2.296700025], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_43.bindPopup("<img src=https://a1.muscache.com/im/pictures/57620209/b8a8ee83_original.jpg width=300 height=300 <br> 519$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/4580762.0>Go to airbnb</a>");
+      circle_43._popup.options.maxWidth = 300;
+      map.addLayer(circle_43)
+      
+      var circle_44 = L.circle([48.85474713, 2.296645134], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_44.bindPopup("<img src=https://a1.muscache.com/im/pictures/78706762/f5bd86eb_original.jpg width=300 height=300 <br> 208$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/6221195.0>Go to airbnb</a>");
+      circle_44._popup.options.maxWidth = 300;
+      map.addLayer(circle_44)
+      
+      var circle_45 = L.circle([48.84947172, 2.297938083], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_45.bindPopup("<img src=https://a0.muscache.com/im/pictures/16970018/786741d0_original.jpg width=300 height=300 <br> 289$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/1127370.0>Go to airbnb</a>");
+      circle_45._popup.options.maxWidth = 300;
+      map.addLayer(circle_45)
+      
+      var circle_46 = L.circle([48.88413089, 2.333267489], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_46.bindPopup("<img src=https://a2.muscache.com/im/pictures/72915236/638cfe16_original.jpg width=300 height=300 <br> 114$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/1863824.0>Go to airbnb</a>");
+      circle_46._popup.options.maxWidth = 300;
+      map.addLayer(circle_46)
+      
+      var circle_47 = L.circle([48.88682725, 2.338607196], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_47.bindPopup("<img src=https://a0.muscache.com/im/pictures/77127476/fa62210f_original.jpg width=300 height=300 <br> 172$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/2428410.0>Go to airbnb</a>");
+      circle_47._popup.options.maxWidth = 300;
+      map.addLayer(circle_47)
+      
+      var circle_48 = L.circle([48.88567205, 2.337137774], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_48.bindPopup("<img src=https://a2.muscache.com/im/pictures/75972539/dab0e9c5_original.jpg width=300 height=300 <br> 185$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/5702681.0>Go to airbnb</a>");
+      circle_48._popup.options.maxWidth = 300;
+      map.addLayer(circle_48)
+      
+      var circle_49 = L.circle([48.88676867, 2.337975333], 50, {
+                            color: 'blue',
+                            fillColor: 'blue',
+                            fillOpacity: 0.6
+                            });
+      circle_49.bindPopup("<img src=https://a2.muscache.com/im/pictures/26591454/e9c73e44_original.jpg width=300 height=300 <br> 104$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/1916509.0>Go to airbnb</a>");
+      circle_49._popup.options.maxWidth = 300;
+      map.addLayer(circle_49)
+      
+      var circle_50 = L.circle([48.88501159, 2.338011389], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_50.bindPopup("<img src=https://a0.muscache.com/im/pictures/74699012/07704bfd_original.jpg width=300 height=300 <br> 368$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/5998015.0>Go to airbnb</a>");
+      circle_50._popup.options.maxWidth = 300;
+      map.addLayer(circle_50)
+      
+      var circle_51 = L.circle([48.88434221, 2.334974583], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_51.bindPopup("<img src=https://a0.muscache.com/im/pictures/77346512/ee65c26a_original.jpg width=300 height=300 <br> 335$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/748307.0>Go to airbnb</a>");
+      circle_51._popup.options.maxWidth = 300;
+      map.addLayer(circle_51)
+      
+      var circle_52 = L.circle([48.88581015, 2.343688837], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_52.bindPopup("<img src=https://a1.muscache.com/im/pictures/84144948/5e422108_original.jpg width=300 height=300 <br> 254$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/6671923.0>Go to airbnb</a>");
+      circle_52._popup.options.maxWidth = 300;
+      map.addLayer(circle_52)
+      
+      var circle_53 = L.circle([48.88616671, 2.336734023], 50, {
+                            color: 'red',
+                            fillColor: 'red',
+                            fillOpacity: 0.6
+                            });
+      circle_53.bindPopup("<img src=https://a0.muscache.com/im/pictures/81125862/5d533948_original.jpg width=300 height=300 <br> 112$ <br> <a target=\"_blank\" href=https://www.airbnb.com/rooms/6461738.0>Go to airbnb</a>");
+      circle_53._popup.options.maxWidth = 300;
+      map.addLayer(circle_53)
+      
+
+      
+
+      
+
+      
+
+      
+
+
+
+   </script>
+
+</body>
